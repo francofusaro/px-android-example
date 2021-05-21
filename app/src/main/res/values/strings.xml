@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">PX Android Example</string>
+    <string name="title">Integration Examples</string>
+    <string name="item_name">Item name</string>
+    <string name="item_price">Item unit price</string>
+    <string name="item_quantity">Item quantity</string>
+    <string name="comprar">Comprar</string>
+    <string name="preference_configuration_subtitle">Preference configuration</string>
+    <string name="checkbox_hint_2">Warning: Ticking this checkbox will only have effect when custom payment processor is being used</string>
+    <string name="use_custom_payment_processor">Use custom payment processor</string>
+    <string name="payment_configuration">Payment configuration</string>
+    <string name="exclude_debit_card">Exclude debit card</string>
+    <string name="exclude_credit_card">Exclude credit card</string>
+    <string name="use_visual_processor">Use visual processor</string>
+    <string name="use_last_preference_id">Use last preference ID</string>
+    <string name="checkbox_hint_1">Warning: Ticking this checkbox will ignore form\'s text fields when there is a saved preference</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="advanced_configuration_title">Advanced configuration</string>
+    <string name="use_custom_strings">Use custom strings</string>
+    <string name="use_dialog_on_image_tap">Use dialog on image tap</string>
+    <string name="add_charge_to_credit_card">Add charge to credit card</string>
+    <string name="use_custom_result_top_and_bottom_fragments">Use custom result top and bottom fragments</string>
+    <string name="procesando_pago">Estamos procesando tu pago, esto podría tomar unos segundos...</string>
+</resources>

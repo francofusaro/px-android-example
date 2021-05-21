@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/px_s_margin"
+        tools:context=".ui.main.MainFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/px_medium_text"
+            android:text="@string/title"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/preference_section_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/px_medium_text"
+            android:text="@string/preference_configuration_subtitle"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/use_last_pref_id_radio_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:text="@string/use_last_preference_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/preference_section_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/checkbox_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkbox_hint_1"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/use_last_pref_id_radio_btn" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/item_title"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/px_xs_margin"
+            android:hint="@string/item_name"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkbox_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                tools:text="Producto A" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/item_price"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/px_xs_margin"
+            android:layout_marginEnd="@dimen/px_xxxs_margin"
+            android:hint="@string/item_price"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toStartOf="@+id/item_quantity"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_title"
+            app:prefixText="$">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                tools:text="350" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/item_quantity"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/px_xs_margin"
+            android:layout_marginStart="@dimen/px_xxxs_margin"
+            android:hint="@string/item_quantity"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/item_price"
+            app:layout_constraintTop_toBottomOf="@+id/item_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                tools:text="5" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/exclude_credit_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px_xs_margin"
+            android:minHeight="0dp"
+            android:text="@string/exclude_credit_card"
+            app:layout_constraintEnd_toStartOf="@+id/exclude_debit_card"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_price" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/exclude_debit_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:layout_marginTop="@dimen/px_xs_margin"
+            android:text="@string/exclude_debit_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/exclude_credit_card"
+            app:layout_constraintTop_toBottomOf="@+id/item_price" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/payment_cfg_section_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/px_medium_text"
+            android:text="@string/payment_configuration"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exclude_credit_card" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/use_custom_payment_processor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:text="@string/use_custom_payment_processor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payment_cfg_section_title" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/use_visual_processor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:text="@string/use_visual_processor"
+            android:enabled="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/use_custom_payment_processor" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/add_charge_to_credit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:text="@string/add_charge_to_credit_card"
+            android:enabled="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/use_visual_processor" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/advanced_cfg_section_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/px_medium_text"
+            android:text="@string/advanced_configuration_title"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_charge_to_credit" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/use_custom_strings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:text="@string/use_custom_strings"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/advanced_cfg_section_title" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/use_dialog_on_tap_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:text="@string/use_dialog_on_image_tap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/use_custom_strings" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/use_custom_fragments_on_payment_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:text="@string/use_custom_result_top_and_bottom_fragments"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/use_dialog_on_tap_header" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/start_checkout_btn"
+            style="Widget.MaterialComponents.Button.TextButton.Dialog.FullWidth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/px_xs_margin"
+            android:height="@dimen/px_button_height"
+            android:enabled="false"
+            android:text="@string/comprar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/use_custom_fragments_on_payment_result"
+            tools:enabled="true" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
