@@ -32,7 +32,7 @@ class PaymentServiceMock() : IPaymentService {
     private fun getRejectedBusinessPayment() = BusinessPayment.Builder(
         BusinessPayment.Decorator.REJECTED,
         Payment.StatusCodes.STATUS_REJECTED,
-        Payment.StatusDetail.STATUS_DETAIL_CC_REJECTED_BAD_FILLED_CARD_NUMBER,
+        Payment.StatusDetail.STATUS_DETAIL_CC_REJECTED_OTHER_REASON,
         R.drawable.px_icon_default,
         "Pago business rechazado :(",
         PaymentMethods.ARGENTINA.VISA,
