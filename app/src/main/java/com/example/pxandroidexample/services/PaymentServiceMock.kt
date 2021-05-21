@@ -3,6 +3,7 @@ package com.example.pxandroidexample.services
 import android.os.Parcel
 import android.os.Parcelable
 import com.example.pxandroidexample.R
+import com.example.pxandroidexample.ui.main.CongratsCustomTopFragment
 import com.mercadopago.android.px.core.SplitPaymentProcessor
 import com.mercadopago.android.px.model.*
 import com.mercadopago.android.px.model.internal.GenericPaymentDescriptor
@@ -18,6 +19,7 @@ class PaymentServiceMock() : IPaymentService {
             return when {
                 title.contains(GENERIC_APPROVED) -> getApprovedGenericPayment()
                 title.contains(BUSINESS_APPROVED) -> getApprovedBusinessPayment()
+                title.contains(BUSINESS_REJECTED) -> getRejectedBusinessPayment()
                 else -> GenericPaymentDescriptor.with(
                     GenericPayment.Builder(
                     Payment.StatusCodes.STATUS_REJECTED,
@@ -26,6 +28,22 @@ class PaymentServiceMock() : IPaymentService {
             }
         }
     }
+
+    private fun getRejectedBusinessPayment() = BusinessPayment.Builder(
+        BusinessPayment.Decorator.REJECTED,
+        Payment.StatusCodes.STATUS_REJECTED,
+        Payment.StatusDetail.STATUS_DETAIL_CC_REJECTED_BAD_FILLED_CARD_NUMBER,
+        R.drawable.px_icon_default,
+        "Pago business rechazado :(",
+        PaymentMethods.ARGENTINA.VISA,
+        PaymentTypes.CREDIT_CARD
+    )
+        .setPaymentMethodVisibility(true)
+        .setTopFragment(CongratsCustomTopFragment::class.java, null)
+        .setPrimaryButton(ExitAction("Volver al inicio", 999))
+        .setSubtitle("Subtitle?")
+        .setReceiptId("9341")
+        .build()
 
     private fun getApprovedBusinessPayment() = BusinessPayment.Builder(
         BusinessPayment.Decorator.APPROVED,
@@ -56,6 +74,7 @@ class PaymentServiceMock() : IPaymentService {
     companion object CREATOR : Parcelable.Creator<PaymentServiceMock> {
         const val GENERIC_APPROVED = "GEN APRO"
         const val BUSINESS_APPROVED = "BUS APRO"
+        const val BUSINESS_REJECTED = "BUS REJE"
 
         override fun createFromParcel(parcel: Parcel): PaymentServiceMock {
             return PaymentServiceMock(parcel)

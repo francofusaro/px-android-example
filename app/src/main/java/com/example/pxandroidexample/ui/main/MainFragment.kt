@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.CheckBox
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -25,9 +24,9 @@ class MainFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var useLastPref : MaterialCheckBox
-    private lateinit var itemTitle : TextInputLayout
-    private lateinit var itemUnitPrice : TextInputLayout
-    private lateinit var itemQuantity : TextInputLayout
+    private lateinit var itemTitleInput : TextInputLayout
+    private lateinit var itemUnitPriceInput : TextInputLayout
+    private lateinit var itemQuantityInput : TextInputLayout
     private lateinit var excludeCreditCard : MaterialCheckBox
     private lateinit var excludeDebitCard : MaterialCheckBox
     private lateinit var useCustomPaymentProcessor : MaterialCheckBox
@@ -139,9 +138,9 @@ class MainFragment : Fragment() {
     private fun setViewAccessors(view: View) {
         // this can be avoided with data binding too
         with(view) {
-            itemTitle = findViewById(R.id.item_title)
-            itemUnitPrice = findViewById(R.id.item_price)
-            itemQuantity = findViewById(R.id.item_quantity)
+            itemTitleInput = findViewById(R.id.item_title)
+            itemUnitPriceInput = findViewById(R.id.item_price)
+            itemQuantityInput = findViewById(R.id.item_quantity)
             startCheckoutBtn = findViewById(R.id.start_checkout_btn)
             useLastPref = findViewById(R.id.use_last_pref_id_radio_btn)
             excludeCreditCard = findViewById(R.id.exclude_credit_card)
@@ -172,10 +171,10 @@ class MainFragment : Fragment() {
 
     private fun setItemInputsChangeListeners() {
         // this can be done with data bindings and onTextChanged
-        val viewModelPropMap = mapOf(Pair(MainViewModel.ITEM_TITLE_KEY, itemTitle),
-            Pair(MainViewModel.ITEM_PRICE_KEY, itemUnitPrice),
-            Pair(MainViewModel.ITEM_QUANTITY_KEY, itemQuantity))
-        for (textInput in viewModelPropMap) {
+        val viewModelPropKeyMap = mapOf(Pair(MainViewModel.ITEM_TITLE_KEY, itemTitleInput),
+            Pair(MainViewModel.ITEM_PRICE_KEY, itemUnitPriceInput),
+            Pair(MainViewModel.ITEM_QUANTITY_KEY, itemQuantityInput))
+        for (textInput in viewModelPropKeyMap) {
             textInput.value.editText?.let { editText ->
                 editText.doAfterTextChanged {
                     viewModel.updateProperty(textInput.key, it.toString())

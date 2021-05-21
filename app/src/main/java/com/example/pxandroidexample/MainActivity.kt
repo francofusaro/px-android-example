@@ -36,15 +36,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun handlePaymentResult(resultCode: Int, data: Intent?) {
         when (resultCode) {
-            MercadoPagoCheckout.PAYMENT_RESULT_CODE -> {
-                handlePaymentFinished(data)
-            }
-            RESULT_CANCELED -> {
-                handlePaymentCanceled(data)
-            }
-            else -> {
-                handleOtherPaymentEnd(data, resultCode)
-            }
+            MercadoPagoCheckout.PAYMENT_RESULT_CODE -> handlePaymentFinished(data)
+            RESULT_CANCELED -> handlePaymentCanceled(data)
+            else -> handleOtherPaymentEnd(data, resultCode)
         }
     }
 
